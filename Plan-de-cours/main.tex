@@ -1,0 +1,286 @@
+\documentclass[12pt,undergraduate]{uqtrplandecours}                                                                                                                            
+\usepackage{uqtrinfo}  % Info on the author name and class title
+\usepackage{natbib}
+\usepackage{bibentry}
+
+\graphicspath{{img/}}
+
+\nobibliography*
+
+\title{Mécanique quantique II}
+
+\signature{img/signature.png}  % Specify your signature image file
+%\authormail{gabriel.antonius@uqtr.ca}
+%\department{Département de chimie, biochimie et physique}
+\departmenthead{Marc Beauregard}
+\programdirector{Benoit Daoust}
+
+%\coursecode{PMO1008}
+%\semester{Automne 2022}
+%\courseyear{3}
+%\courseurl{https://oraprdnt.uqtr.uquebec.ca/pls/public/couw001?owa_sigle=PMO1008&owa_type=P&owa_apercu=N&owa_aff_pgm=7724}
+
+
+% Dates des rencontres
+\addclass{12 septembre}
+\addclass{19 septembre}
+\addclass{26 septembre}
+%\addclass{ 3 octobre}
+\addclass{17 octobre}
+\addclass{24 octobre}
+\addclass{31 octobre}
+\addclass{ 7 novembre}
+\addclass{14 novembre}
+\addclass{21 novembre}
+\addclass{28 novembre}
+\addclass{ 5 décembre}
+\addclass{12 décembre}
+\addclass{19 décembre}
+
+
+% ============================================================================ %
+
+\begin{document}
+
+\maketitle
+
+\section{Description du cours}
+% La description doit être exactement ce qui est sur le site web.
+
+Approfondir les méthodes numériques et formelles de la mécanique quantique.
+Spin et addition de moments cinétiques. Solution, à l'aide de l'ordinateur,
+  de l'équation aux valeurs propres pour l'hamiltonien.
+Modèle atomique du champ central, champ self-consistent.
+Méthodes d'approximation: perturbations stationnaires,
+  perturbations dépendant du temps, méthode variationnelle.
+États stationnaires de diffusion. 
+
+
+\subsection*{Préalables}
+\begin{itemize}
+  \item PHQ1010 -- Mécanique quantique I
+\end{itemize}
+
+
+
+\section{Objectif général du cours}
+% Ce que le cours va offrir aux étudiants
+
+\begin{itemize}
+  \item Assimiler les notions essentielles de la mécanique quantique
+  \item Connaître les méthodes de calcul numérique élémentaires
+  \item Comprendre les méthodes d'approximation
+  \item Comprendre le lien entre les mesures expérimentales
+        et les transitions quantiques
+\end{itemize}
+
+
+\section{Objectif spécifiques}
+% Ce que les étudiants seront capable de faire
+
+\begin{itemize}
+  \item Maîtriser l'addition de moments angulaires
+  \item Comprendre les notion de perturbation et de transition
+  \item Calculer le changement d'énergie associé à une perturbation
+  \item Calculer la probabilité de transition due à une perturbation
+  \item Appliquer la règle d'or de Fermi
+\end{itemize}
+
+% =========================================================================== %
+
+\clearpage
+\section{Contenu et calendrier détaillé}
+
+% ========================== %
+\nextclass
+
+\addcontent{Notions élémentaires}
+
+% ========================== %
+\nextclass
+
+\addcontent{Spin et moment angulaire}
+\addhomework{10}{0}
+
+% ========================== %
+\nextclass
+
+\addcontent{Spin et moment angulaire}
+
+% ========================== %
+\nextclass
+\addcontent{Addition de moments angulaires}
+
+% ========================== %
+\nextclass
+\addcontent{Champ central}
+\addhomework{10}{0}
+
+% ========================== %
+\nextclass
+\addcontent{Révision}
+\addhomework{10}{0}
+
+% ========================== %
+\nextclass
+\addeval{Examen Intra}{25}{0}
+
+% ========================== %
+\nextclass
+\addcontent{Perturbations stationnaires}
+
+% ========================== %
+\nextclass
+\addcontent{Perturbations stationnaires}
+
+% ========================== %
+\nextclass
+\addcontent{Diffusion d'un faisceau par une cible}
+\addhomework{10}{0}
+
+% ========================== %
+\nextclass
+\addcontent{Perturbations dépendantes du temps}
+
+% ========================== %
+\nextclass
+\addcontent{Radiation électromagnétique}
+\addhomework{10}{0}
+
+% ========================== %
+\nextclass
+\addeval{Examen final}{25}{0}
+
+% ========================== %
+\FloatBarrier
+\printcalendarremote
+% ========================== %
+
+\bigskip
+\noindent
+Remarques
+\begin{itemize}
+  \item Le contenu et calendrier détaillé est sujet à changement.
+  \item La répartition doit être conforme au seuil minimal d’interactions et d’échanges en mode synchrone
+        entre l’enseignant-e et ses étudiants établi par le comité de programme concerné.
+  \item Lors de sa réunion du 29 octobre 2020, le comité de programme de 1$^{\text{er}}$ cycle en sciences chimiques et physiques
+        a statué que le seuil minimal d’interactions et d’échanges en mode synchrone
+        entre l’enseignant et ses étudiants est de 50\% (résolution CPPC SCP 29-10-2020-05).
+        En d’autres mots, le type d’interactions synchrone devra comporter au moins 50\%
+        de présence effective pendant la période planifiée du cours.
+  \item Des séances prévues en présentiel pourraient basculer à distance en fonction des consignes sociosanitaires en vigueur.
+\end{itemize}
+
+\FloatBarrier
+
+% =========================================================================== %
+
+\clearpage
+\section{Formules ou stratégies pédagogiques utilisées}
+
+%Cours magistraux. Exercices en classe.
+Cours en lignes. Exercices supervisés et discussions.
+Tous les cours se donneront par zoom (donc, en mode synchrone).
+
+%\clearpage
+\section{Bibliographie}
+
+Ouvrage obligatoire:
+\begin{itemize}
+  \item \bibentry{MarchildonQuantumMechanics2002}
+\\ OU
+  \item \bibentry{Cohen-TannoudjiQuantummechanics1993}
+\end{itemize}
+
+Autres références:
+\begin{itemize}
+  %\item \bibentry{Cohen-TannoudjiQuantummechanicsVol2005}
+  \item \bibentry{SakuraiModernquantummechanics2009}
+\end{itemize}
+
+
+\section{Autres indications}
+
+Afin de favoriser le bon déroulement des activités d'enseignement à distance,
+  l'UQTR demande aux étudiant(e)s d'avoir accès aux ressources suivantes :
+\begin{itemize}
+  \item Ordinateur muni d'une caméra et d'un microphone;
+  \item Accès à internet, idéalement de 10Mb/s ou plus;
+  \item Accès aux applications (Zoom, Teams, etc.) requises dans le cadre de leur cursus.
+\end{itemize}
+
+% =========================================================================== %
+
+\section{Fiche d'évaluation}
+
+\subsection*{Détail des éléments d'évaluation}
+
+% ========================== %
+\printevaltable 
+% ========================== %
+
+\begin{itemize}
+  \item Les devoirs sont à remettre en format pdf sur le portail de cours.
+  \item Chaque jour de retard sur la remise des travaux
+        engendrera une pénalité de 10\% de la note maximale du travail.
+  \item Tout changement de date prévu à la fiche d’évaluation doit se faire
+        avec l’accord des deux tiers (2/3) des étudiants inscrits au cours-groupe.
+  \item L’auto-évaluation et l’évaluation des pairs ne peuvent compter
+        séparément ou ensemble pour plus de 5 \% de la note finale.
+        (Article 223 - Règlement des études de premier cycle)
+\end{itemize}
+
+
+\subsection*{Autres indications relatives à l'évaluation}
+
+Un maximum de 5\% peut être attribué à la maîtrise de la langue française
+  et à la présentation des travaux.
+%
+L'utilisation de \LaTeX \ maximisera vos points de présentation.
+
+\subsubsection*{Règles particulières pour la passation d’une activité d’évaluation par Zoom}
+
+L’étudiant qui participe à une activité d’évaluation par Zoom doit activer sa caméra (vidéo) et la maintenir active jusqu’à sa déconnexion de la séance Zoom, afin de permettre à l’enseignant ou au surveillant de vérifier son identité et d’effectuer la surveillance de l’activité. L’étudiant doit avoir le visage à découvert sans obstruction (couvre-visage, casquette, chapeau, etc.) et ajuster sa caméra de façon à ce qu’elle capte son visage complet. L’étudiant doit avoir en sa possession sa carte étudiante à des fins de vérification d’identité et se connecter à l’activité en utilisant les prénom et nom indiqués sur sa carte.
+
+ 
+Si l’étudiant refuse d’activer sa caméra ou de s’identifier auprès de l’enseignant ou du surveillant de la manière qui lui sera indiquée, il sera exclu de la séance Zoom. Il sera considéré comme étant absent à l’activité sans motif sérieux et sans possibilité de la reprendre.
+
+Il est interdit d’enregistrer (vidéo ou audio) l’activité en tout ou en partie, par quelque moyen que ce soit. Toute violation de cette règle constitue un délit en vertu du Règlement sur les délits relatifs aux études et peut donner lieu à une sanction.
+
+Veuillez prendre note que les activités d’évaluation ne sont pas enregistrées par l’enseignant ou le surveillant.
+
+\medskip
+\href{https://oraprdnt.uqtr.uquebec.ca/pls/public/docs/GSC5087/O0003262120_Regles_de_conduite_utilisation_Zoom.pdf}%
+     {Règles de conduite – utilisation de Zoom dans le cadre des activités d’enseignement}
+
+Pour plus de détails sur les modalités de la formation à distance, visitez le site web du
+\href{https://oraprdnt.uqtr.uquebec.ca/pls/public/gscw031?owa_no_site=3939&owa_no_fiche=90}%
+     {Bureau de pédagogie et de formation à distance}
+
+% =========================================================================== %
+
+\subsection*{Barème de notation}
+
+% ========================== %
+\printgrades
+% ========================== %
+
+Note: Ceci est le barème officiel de l'université,
+  et représente la cote minimale que vous pouvez avoir en fonction de la note.
+Le barème peut cependant être bonifié selon de la difficulté avérée du cours.
+
+
+\section{Cadre réglementaire}
+\cadrereglementaire
+
+
+% =========================================================================== %
+\clearpage
+\signatures
+
+% =========================================================================== %
+
+\bibliographystyle{plainnat}
+\nobibliography{main}
+
+\end{document}

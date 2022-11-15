@@ -1,0 +1,37 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Cohen-Tannoudji} et~al.(1993){Cohen-Tannoudji}, Diu, Lalo{\"e}, and
+  Hemley]{Cohen-TannoudjiQuantummechanics1993}
+Claude {Cohen-Tannoudji}, Bernard Diu, Franck Lalo{\"e}, and Susan~Reid Hemley.
+\newblock \emph{Quantum Mechanics}.
+\newblock A {{Wiley}}-{{Interscience}} Publication. {Wiley [u.a.]}, {New York,
+  NY}, 1993.
+\newblock ISBN 978-0-471-56952-7.
+
+\bibitem[{Cohen-Tannoudji} et~al.(2005){Cohen-Tannoudji}, Diu, and
+  Lalo{\"e}]{Cohen-TannoudjiQuantummechanicsVol2005}
+Claude {Cohen-Tannoudji}, Bernard Diu, and Franck Lalo{\"e}.
+\newblock \emph{Quantum Mechanics. {{Vol}}. 1: ...}
+\newblock Textbook Physics. {Wiley [u.a.]}, {New York, NY}, 2005.
+\newblock ISBN 978-0-471-16433-3.
+
+\bibitem[Marchildon(2002)]{MarchildonQuantumMechanics2002}
+Louis Marchildon.
+\newblock \emph{Quantum {{Mechanics}}}.
+\newblock {Springer Berlin Heidelberg}, {Berlin, Heidelberg}, 2002.
+\newblock ISBN 978-3-642-07767-8 978-3-662-04750-7.
+\newblock \doi{10.1007/978-3-662-04750-7}.
+
+\bibitem[Sakurai and Tuan(2009)]{SakuraiModernquantummechanics2009}
+Jun~J. Sakurai and San~Fu Tuan.
+\newblock \emph{Modern Quantum Mechanics}.
+\newblock {Addison Wesley Longman}, {Reading, Mass.}, rev. ed., [reprinted]
+  edition, 2009.
+\newblock ISBN 978-0-201-53929-5.
+
+\end{thebibliography}

@@ -1,0 +1,19 @@
+# =========================================================================== #
+#
+# UQTR Class Template  ---  version 2022-11-15
+# 
+# =========================================================================== #
+
+This directory tree is intended to be used for one semester only.
+
+Please edit the following files to specify informations on the current class.
+    Common/info.mk
+    Common/uqtrinfo.sty
+
+
+You can delete the present README file or move it inside the Common directory.
+
+
+
+HOW TO USE THIS TEMPLATE
+

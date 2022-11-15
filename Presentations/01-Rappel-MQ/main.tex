@@ -1,0 +1,1538 @@
+\documentclass[xcolor=svgnames,t,aspectratio=169,handout]{uqtrcours}
+\graphicspath{{img/}}
+
+\usepackage{mylayers}
+\usepackage{mysymbols}
+
+% =========================================================================== %
+% Info
+% =========================================================================== %
+
+\title[]{Rappel des notions élémentaires en mécanique quantique}
+\subtitle{PMO1008 -- Mécanique quantique II}
+\author[]{Gabriel Antonius}
+\date[]{Cours 1}
+
+
+% =========================================================================== %
+% Slides
+% =========================================================================== %
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \thispagestyle{empty}
+\end{frame}
+
+
+\begin{frame}
+  \tableofcontents
+\end{frame}
+
+\section{Fonction d'onde et opérateurs}
+\frame{\sectionpage}
+
+
+\begin{frame}{Fonction d'onde}
+
+La fonction d'onde $\psi(\vec r)$
+  est une fonction réelle ou complexe
+  qui encode toute l'information
+  sur une particule.
+
+\medskip
+
+La densité de probabilité d'observer une particule à la position $\vec r$
+  est
+\begin{align}
+  \vert \psi(\vec r) \vert^2 = \psi^*(\vec r) \psi(\vec r)
+\end{align}
+
+La fonction d'onde doit donc être normalisée:
+\begin{equation}
+  \int \vert  \psi(\vec r) \vert^2 d^3\vec r = 1
+\end{equation}
+
+Aussi, la fonction d'onde doit être continue et différenciable.
+
+
+\end{frame}
+
+
+
+\begin{frame}{Fonction d'onde}
+
+Par exemple, en 1D, si $\psi(x)$ est la fonction d'onde d'une particule,
+  alors la probabilité d'observer la particule dans l'intervalle $a \le x \le b$ est
+\begin{align}
+  \int_a^b \vert \psi(x) \vert^2 dx
+\end{align}
+
+\medskip
+
+En 3D, %si $\psi(\vec r)$ est la fonction d'onde d'une particule,
+  la probabilité de trouver particule dans le volume
+  ($x_1 \le x \le x_2$;
+   $y_1 \le y \le y_2$;
+   $z_1 \le z \le z_2$)
+  est
+\begin{align}
+  \int_{x_1}^{x_2}
+  \int_{y_1}^{y_2}
+  \int_{z_1}^{z_2}
+  \vert \psi(\vec r) \vert^2 dx dy dz
+\end{align}
+
+
+
+
+\end{frame}
+
+
+%\begin{frame}{Fonction d'onde}
+%
+%Une fonction d'onde qui décrit $N$ particules s'écrit %$\psi(\vec r_1, \vec r_2,\dots, \vec r_N)$.
+%\begin{align}
+%  \psi(\vec r_1, \vec r_2,\dots, \vec r_N)
+%\end{align}
+%
+%\medskip
+%La norme au carré
+%\begin{align}
+%  \vert \psi(\vec r_1, \vec r_2,\dots, \vec r_N) \vert^2
+%\end{align}
+%correspond à la densité de
+%  probabilité d'observer en même temps
+%  la particule 1 au points $\vec r_1$,
+%  la particule 2 au points $\vec r_2$,
+%  etc.
+%
+%\end{frame}
+
+
+
+\begin{frame}{Opérateurs}
+
+Un opérateur est un objet qui peut modifier une fonction d'onde.
+%
+
+\medskip
+
+Si $\psi(\vec r)$ est une fonction d'onde, et $A$ est un opérateur,
+  alors on peut former une nouvelle fonction en faisant
+  agir A sur $\psi$ selon
+\begin{align}
+  \phi(\vec r) = A \psi(\vec r)
+\end{align}
+
+\medskip
+
+Remarque: la fonction $\phi(\vec r)$ n'est pas nécessairement
+  une fonction d'onde normalisée.
+
+\end{frame}
+
+
+\begin{frame}{Opérateurs}
+
+
+La valeur moyenne d'un opérateur pour la particule décrite par la fonction
+  d'onde $\psi(r)$ est
+\begin{align}
+  \braket{A} = \int \psi^*(\vec r) A \psi(\vec r) d^3 \vec r
+\end{align}
+
+
+Par exemple, si une particule se trouve dans un potentiel $V(\vec r)$,
+  ce potentiel est un opérateur, et la valeur moyenne du potentiel
+  pour l'état $\psi(r)$ est
+\begin{align}
+  \braket{V} = \int \psi^*(\vec r) V(\vec r) \psi(\vec r) d^3 \vec r
+\end{align}
+
+%Les observables sont des quantités réelles
+%  que l'on pourrait mesurer, et sont décrites par des opérateurs hermitien.
+
+\end{frame}
+
+
+
+\begin{frame}{Opérateur de position}
+
+En 1 dimension, 
+  l'opérateur de position, noté $X$,
+  agit sur une fonction d'onde
+  en la multipliant par la position
+%
+\begin{align}
+  X \psi(x) = x \psi(x) 
+\end{align}
+
+La valeur moyenne de l'opérateur de position est
+\begin{align}
+  \braket{X}
+  %=
+  %\braket{\psi \vert X \vert \psi}
+  =
+  \int_{-\infty}^{\infty}
+  \psi^*(x)
+  x
+  \psi(x)
+  dx
+  =
+  \int_{-\infty}^{\infty}
+  x
+  \vert \psi(x) \vert^2
+  dx
+\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Opérateur d'impulsion}
+
+Dans l'espace des positions,
+  l'opérateur d'impulsion $P$ en 1D
+  est représenté par
+\begin{align}
+  P  = -i\hbar \frac{\partial}{\partial x}
+\end{align}
+%
+Lorsqu'on fait agir l'opérateur d'impulsion sur une fonction d'onde, on a
+\begin{align}
+  %\braket{x \vert P \vert \psi}
+  P \psi(x)
+  =
+  -i\hbar \frac{\partial \psi(x)}{\partial x}
+\end{align}
+
+On peut calculer la valeur moyenne de l'impulsion
+  pour la fonction d'onde $\psi(x)$ avec
+\begin{align}
+  \braket{P}
+  =
+  -i\hbar
+  \int_{-\infty}^{\infty}
+  \psi^*(x)
+  \frac{\partial}{\partial x}
+  \psi(x)
+  dx
+\end{align}
+
+La constante de Plank réduite $\hbar$
+  possède des unités de positions $\times$ impulsion.
+
+%En général, il existe une correspondance
+%  entre les observables et les opérateurs différentiels.
+
+\end{frame}
+
+
+\begin{frame}{Opérateurs de position et d'impulsion en 3D}
+
+En 3D, l'opérateur de position est noté
+\begin{align}
+  \vec R = \vec X + \vec Y + \vec Z
+\end{align}
+Un autre notation possible pour l'opérateur de position est
+\begin{align}
+  \vec X
+  = \vec X_x + \vec X_y + \vec X_z
+\end{align}
+
+L'opérateur d'impulsion est
+\begin{align}
+  \vec P = \vec P_x + \vec P_y + \vec P_z
+\end{align}
+
+L'opérateur d'impulsion dans l'espace des positions est représenté par
+\begin{align}
+  \vec P 
+  =
+  -i\hbar \nabla
+  =
+  -i \hbar \left(
+    \hat x \frac{\partial}{\partial x}
+  + \hat y \frac{\partial}{\partial y}
+  + \hat z \frac{\partial}{\partial z}
+  \right)
+\end{align}
+%
+%Ceci signifie que
+%\begin{align}
+%  \braket{\vec r \vert \vec P \vert \psi} = -i\hbar \nabla \psi(\vec r)
+%\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Hamiltonien}
+
+L'Hamiltonien est l'opérateur d'énergie
+\begin{equation}
+  H = \frac{\vec P^2}{2m} + V(\vec r)
+\end{equation}
+En 3D, l'opérateur d'impulsion au carré est
+\begin{align}
+  \vec P^2
+  =
+  -\hbar^2 \nabla^2
+  =
+  -\hbar^2 \bigg[
+    \frac{\partial^2}{\partial x^2}
+  + \frac{\partial^2}{\partial y^2}
+  + \frac{\partial^2}{\partial z^2}
+  \bigg]
+\end{align}
+
+L'énergie moyenne d'une particule en 1D est
+\begin{align}
+  \braket{H}
+  =
+  \int \psi^*(x) H \psi(x) dx
+  =
+  \int
+  \psi^*(x)
+  \bigg[
+    -\frac{\hbar^2}{2m} \frac{\partial^2}{\partial x^2} + V(x)
+  \bigg]
+  \psi(x)
+  dx
+\end{align}
+
+\end{frame}
+
+
+
+
+\begin{frame}{Relations de commutation}
+
+En général, l'action de deux opérateurs $A$ et $B$
+  sur une fonction d'onde est non-commutative, c'est à dire que
+\begin{align}
+  A B \psi(\vec r) \neq B A \psi(\vec r)
+\end{align}
+
+Le \textbf{commutateur} entre deux opérateurs $A$ et $B$
+  est définit comme
+\begin{align}
+  [A,B] = AB - BA
+\end{align}
+
+On dit que $A$ et $B$ commutent si $[A,B]=0$.
+
+\medskip
+
+Dans ce cas, on peut inverser l'ordre de ces deux opérateurs:
+\begin{align}
+  A B \psi(\vec r) = B A \psi(\vec r)
+  \quad \text{ssi} \qquad
+  [A,B]=0
+\end{align}
+
+
+
+%
+%\medskip
+%Deux opérateurs auront les mêmes fonctions propres
+%  si et seulement si ils commutent.
+%On aura par exemple
+%\begin{align}
+%  A \ket{\phi_i} = a_i \ket{\phi_i}
+%  \qquad ; \qquad
+%  B \ket{\phi_i} = b_i \ket{\phi_i}
+%\end{align}
+%
+%\medskip
+%Un ensemble d'opérateurs $(A, B, C, \dots)$ qui commutent est \textbf{complet}
+%  si un ensemble de valeurs propres $(a_i, b_i, c_i, \dots)$
+%  détermine de façon unique l'état $\ket{\phi_i}$
+%  auquel ces valeurs propres correspondent.
+
+\end{frame}
+
+
+
+\begin{frame}{Commutation des opérateurs de position et d'impulsion}
+
+En 1D, les opérateurs de position et d'impulsion ne commutent pas,
+  et on a
+\begin{align}
+  [X, P] = i \hbar
+\end{align}
+
+\medskip
+
+En 3D, pour les 3 compostantes $X_i$ et $P_i$  ($i=1,2,3$), on a
+\begin{align}
+  [X_i, X_j] &= 0\\
+  [P_i, P_j] &= 0\\
+  [X_i, P_j] &= i\hbar \delta_{ij}
+\end{align}
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Observables}
+
+
+Un \textbf{observable} est une quantité physique que l'on peut mesurer.
+%
+Par exemple:
+\begin{itemize}
+  \item La position
+  \item L'impulsion
+  \item Le moment cinétique
+  \item L'énergie
+\end{itemize}
+
+\medskip
+
+Un observable est représenté par un opérateur
+  des valeurs propres réelles (un opérateur hermitien).
+
+\end{frame}
+
+
+
+
+
+\section{Équation de Schrödinger}
+\frame{\sectionpage}
+
+
+
+
+\begin{frame}{Équation de Schödinger}
+
+
+L'équation de Schrödinger nous donne l'évolution temporelle 
+  de la fonction d'onde.
+\begin{align}
+  i \hbar \frac{\partial}{\partial t}
+  \psi(\vec r, t)
+  =
+  H \psi(\vec r, t)
+\end{align}
+
+%Une fonction d'onde correspond à un \textbf{état propre}
+Si une fonction d'onde correspond à un état propre de l'hamiltonien
+\begin{align}
+  H \psi_{j}(\vec r, t)
+  =
+  E_{j} \psi_{j}(\vec r, t)
+\end{align}
+
+Alors l'évolution temporelle de cette fonction d'onde
+  sera donnée par
+\begin{align}
+  \psi_{j}(\vec r, t) = e^{-i E_{j} t / \hbar} \psi_{j}(\vec r, 0)
+\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Équation de Schödinger}
+
+L'équation de Schrödinger est donc une équation
+  aux valeurs propres.
+
+
+%\begin{align}
+%  H \psi_j(\vec r, t)
+%  =
+%  E_{j} \psi_{j}(\vec r, t)
+%\end{align}
+
+\medskip
+
+Au temps $t=0$, la fonction d'onde $\psi_j(r) = \psi_j(\vec r, 0)$
+  obéit à l'équation différentielle
+\begin{align}
+    \left[
+    -\frac{\hbar^2}{2m} \nabla^2 + V(\vec r) \right] \psi_j(\vec r)
+    = E_j \psi_j(\vec r)
+\end{align}
+
+L'indice $j$ est un \textbf{nombre quantique}
+  et indique que la fonction d'onde $\psi_{j}$
+  est la $j^e$ solution possible de l'équation de Schrödinger,
+  et l'énergie $E_{j}$ est la $j^e$ valeur propre de l'Hamiltonien.
+
+\medskip
+Les solutions de $H$ peuvent aussi être continues
+  et être décrites par un nombre quantique réel,
+  par exemple, pour une particule libre
+\begin{align}
+  E(\vec p) = \frac{\vec p^2}{2m}
+\end{align}
+
+\end{frame}
+
+
+
+
+\begin{frame}{États dégénérés}
+
+%\begin{align}
+%  H \ket{\phi_j} = E_j \ket{\phi_j}
+%\end{align}
+
+Lorsque deux états propres différents $\phi_i$ et $\phi_j$
+  possèdent la même valeur propre $E_i=E_j$,
+  on dit que ces états sont \textbf{dégénérés}.
+
+\medskip
+La dégénérescence d'un état $g_j$ est le nombre d'états qui possèdent
+  la même énergie $E_j$.
+%\medskip
+%Quand les états sont dégénérés,
+On introduit alors un nombre quantique
+  additionnel $\alpha$ pour distinguer les différents états dégénérés
+\begin{align}
+  H \phi_{j\alpha} = E_j \phi_{j\alpha}
+  \quad ; \quad \alpha = 1, \dots, g_j
+\end{align}
+%On dit que les indices $j$ et $\alpha$ sont des \textbf{nombres quantiques}.
+%L'indice $j$ est un \textbf{nombre quantique}
+
+
+\end{frame}
+
+
+
+
+\section{Notation de Dirac}
+\frame{\sectionpage}
+
+
+
+
+
+
+
+\begin{frame}{Notation de Dirac}
+
+La notation de Dirac traite les fonctions d'ondes comme des
+  vecteurs et les opérateurs comme des matrices.
+
+\medskip
+
+On note $\ket{\psi}$ le \textit{ket} de la fonction d'onde,
+  et $\bra{\psi}$ le \textit{bra} de la fonction d'onde,
+  avec la correspondance
+\begin{align}
+  \ket{\psi} & \longrightarrow \psi(\vec r) \nonumber\\
+  \bra{\psi} & \longrightarrow \psi^*(\vec r)
+\end{align}
+
+
+Le \textit{braket} $\braket{\phi \vert \psi}$
+  correspond à un produit scalaire,
+  ou encore à la projection de $\psi$ sur $\phi$:
+%
+\begin{align}
+  \braket{\phi \vert \psi}
+  =
+  %\int_{-\infty}^{\infty}
+  \int
+  \phi^*(\vec r)
+  \psi(\vec r)
+  d^3 \vec r
+\end{align}
+
+\end{frame}
+
+
+\begin{frame}{Notation de Dirac}
+
+Par exemple, pour deux fonctions d'onde en 1D, on a
+\begin{align}
+  \braket{\phi \vert \psi}
+  =
+  \int_{-\infty}^{\infty}
+  dx
+  \phi^*(x)
+  \psi(x)
+\end{align}
+%
+Pour un fonction d'onde à une particule en 1D, on a
+\begin{align}
+  \braket{\psi \vert \psi}
+  =
+  \int_{-\infty}^{\infty}
+  dx \vert \psi(x) \vert^2
+  = 1
+\end{align}
+%
+Et de façon générale,
+  la fonction d'onde d'une particule
+  est toujours normalisée,
+  de sorte que
+  %$\braket{\psi \vert \psi}=1$.
+\begin{align}
+  \braket{\psi \vert \psi} = 1
+\end{align}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{Notation de Dirac}
+
+La notation de Dirac permet d'exprimer la valeur moyenne d'un opérateur comme
+\begin{align}
+  \braket{A}
+  = \braket{\psi \vert A \vert \psi}
+  = \int \psi^*(\vec r) A \psi(\vec r) d^3 \vec r
+\end{align}
+
+Remarque: si l'application d'un opérateur $A$
+  sur la fonction d'onde $\ket{\psi}$ est
+\begin{align}
+  \ket{\phi} = A \ket{\psi}
+\end{align}
+alors
+\begin{align}
+  \bra{\phi} = \bra{\psi} A^{\dagger}
+\end{align}
+où $A^{\dagger}$ (prononcé A \textit{dagger})
+  est le conjugué hermitien de $A$
+  (le conjugué complexe de la matrice transposée).
+
+\end{frame}
+
+
+
+%\begin{frame}{Notation de Dirac}
+%
+%La projection de $\ket{\psi}$ sur l'espace des positions
+%  est
+%\begin{align}
+%  \psi(\vec r) = \braket{\vec r \vert \psi}
+%\end{align}
+%%Tandis que
+%\begin{align}
+%  \psi^*(\vec r) = \braket{\psi \vert \vec r}
+%\end{align}
+%
+%\end{frame}
+
+
+%\begin{frame}{Opérateur de position}
+%
+%En 1 dimension, 
+%  l'opérateur de position, noté $X$,
+%  agit sur une fonction d'onde
+%  en la multipliant par la position
+%%
+%\begin{align}
+%  X \psi(x) = x \psi(x) 
+%\end{align}
+%%
+%Pour être vraiment rigoureux,
+%  il faudrait plutôt écrire
+%\begin{align}
+%  \bra{x} X \ket{\psi}
+%  = x \braket{x \vert \psi}
+%  = x \psi(x) 
+%\end{align}
+%
+%
+%La valeur moyenne de l'opérateur de position est
+%\begin{align}
+%  \braket{X}
+%  =
+%  \braket{\psi \vert X \vert \psi}
+%  =
+%  \int_{-\infty}^{\infty}
+%  dx
+%  \psi^*(x)
+%  x
+%  \psi(x)
+%  =
+%  \int_{-\infty}^{\infty}
+%  dx
+%  \vert \psi(x) \vert^2
+%  x
+%\end{align}
+%
+%\end{frame}
+%
+%
+%
+%
+%
+%\begin{frame}{Opérateur d'impulsion}
+%
+%Dans l'espace des positions,
+%  l'opérateur d'impulsion $P$
+%  est représenté par
+%\begin{align}
+%  P  \longrightarrow -i\hbar \frac{\partial}{\partial x}
+%\end{align}
+%%
+%Ceci signifie que
+%\begin{align}
+%  \braket{x \vert P \vert \psi}
+%  =
+%  -i\hbar \frac{\partial \psi(x)}{\partial x}
+%\end{align}
+%
+%
+%La valeur moyenne de l'impulsion
+%  %pour une particule décrite par la fonction d'onde $\psi(x)$
+%  sera
+%\begin{align}
+%  \braket{P}
+%  =
+%  -\int_{-\infty}^{\infty}
+%  dx
+%  \psi^*(x)
+%  i\hbar \frac{\partial}{\partial x}
+%  \psi(x)
+%\end{align}
+%
+%En général, il existe une correspondance
+%  entre les observables et les opérateurs différentiels.
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}{Opérateurs de position et d'impulsion en 3D}
+%
+%En 3D, l'opérateur de position est noté
+%\begin{align}
+%  \vec R = \vec X + \vec Y + \vec Z
+%\end{align}
+%ou encore
+%\begin{align}
+%  \vec X
+%  = \vec X_x + \vec X_y + \vec X_z
+%\end{align}
+%
+%L'opérateur d'impulsion est
+%\begin{align}
+%  \vec P = \vec P_x + \vec P_y + \vec P_z
+%\end{align}
+%
+%L'opérateur d'impulsion dans l'espace des positions est représenté par
+%\begin{align}
+%  P  \longrightarrow -i\hbar \nabla
+%\end{align}
+%%
+%Ceci signifie que
+%\begin{align}
+%  \braket{\vec r \vert \vec P \vert \psi} = -i\hbar \nabla \psi(\vec r)
+%\end{align}
+%
+%\end{frame}
+
+
+
+
+
+
+
+
+%\begin{frame}{Opérateurs et observables}
+%
+%%On peut noter $\hat x$ l'opérateur de position selon
+%%  l'axe des positions $x$.
+%%
+%
+%Pour une particule en 1 dimension
+%  décrite par la fonction d'onde $\psi(x)$,
+%  la valeur moyenne de l'opérateur de position sera
+%\begin{align}
+%  \braket{X}
+%  =
+%  \int_{-\infty}^{\infty}
+%  dx
+%  \psi^*(x)
+%  x
+%  \psi(x)
+%  =
+%  \int_{-\infty}^{\infty}
+%  dx
+%  \vert \psi(x) \vert^2
+%  x
+%\end{align}
+%
+%\medskip
+%
+%Il existe une correspondance %un-pour-un
+%  entre les observables
+%  et les opérateurs différentiels.
+%%
+%
+%\medskip
+%Par exemple, en 1 dimenion, on a pour l'impulsion
+%\begin{align}
+%  P  \longrightarrow -i\hbar \frac{\partial}{\partial x}
+%\end{align}
+%
+%La valeur moyenne de l'impulsion
+%  %pour une particule décrite par la fonction d'onde $\psi(x)$
+%  sera
+%\begin{align}
+%  \braket{P}
+%  =
+%  -\int_{-\infty}^{\infty}
+%  dx
+%  \psi^*(x)
+%  i\hbar \frac{\partial}{\partial x}
+%  \psi(x)
+%\end{align}
+%
+%
+%\end{frame}
+
+
+
+%\begin{frame}{Opérateurs et observables}
+%
+%Il existe une correspondance %un-pour-un
+%  entre les observables
+%  et les opérateurs différentiels.
+%%
+%
+%\medskip
+%Par exemple, en 1 dimenion, on a pour la position
+%\begin{align}
+%  p  \longrightarrow i\hbar \frac{\partial}{\partial x}
+%\end{align}
+%
+%La valeur moyenne de l'impulsion pour une particule
+%  décrite par la fonction d'onde $\psi(x)$ sera
+%\begin{align}
+%  \braket{p}
+%  =
+%  \int_{-\infty}^{\infty}
+%  dx
+%  \psi^*(x)
+%  i\hbar \frac{\partial}{\partial x}
+%  \psi(x)
+%\end{align}
+%
+%\end{frame}
+
+
+
+\section{États propres et valeurs propres des opérateurs}
+\frame{\sectionpage}
+
+
+%\begin{frame}{États propres de l'Hamiltonien}
+%
+%Les états propres de l'Hamiltonien sont les
+%  solutions de l'équation de Schrödinger
+%\begin{align}
+%  H \ket{\phi_j} = E_j \ket{\phi_j}
+%\end{align}
+%La valeur propre $E_j$ correspond à l'énergie d'un système dans l'état
+%  $\ket{\phi_j}$.
+%
+%%L'indice $j$ est un \textbf{nombre quantique}
+%%  et indique que la fonction d'onde $\psi_{j}$
+%%  est la $j^e$ solution possible de l'équation de Schrödinger,
+%%  et l'énergie $E_{j}$ est la $j^e$ valeur propre de l'Hamiltonien.
+%
+%%\medskip
+%
+%%Les états propres de l'hamiltonien peuvent être discrets
+%%  ou continus.
+%  
+%
+%\end{frame}
+
+
+
+\begin{frame}{Valeurs propres et fonctions propres d'un opérateur}
+
+Un opérateur possède des
+  valeurs propres $a_i$
+  et des états propres $\ket{\phi_i}$
+  tel que
+\begin{align}
+  A \ket{\phi_i} = a_i \ket{\phi_i}
+\end{align}
+
+\medskip
+
+Les états propres d'un opérateur sont orthonormés:
+\begin{align}
+  \braket{\phi_i \vert \phi_j}
+  =
+  \int \phi_i^*(\vec r) \phi_j (\vec r) d^3 \vec r
+  =
+  \delta_{ij}
+\end{align}
+
+\medskip
+
+On peut exprimer un opérateur
+  en termes de ses fonctions propres
+  et de ses valeurs propres comme
+\begin{align}
+  A = \sum_i \ket{\phi_i} a_i \bra{\phi_i}
+\end{align}
+
+Si toutes les valeurs propres d'un opérateur sont réelles,
+  alors on dit que c'est un opérateur \textbf{hermitien}.
+
+L'ensemble des états propres d'un opérateur forment une base complète.
+
+\end{frame}
+
+
+\begin{frame}{Opérateurs qui commutent}
+
+\textbf{Théorème:}
+Si deux opérateurs $A$ et $B$ commutent ($AB=BA$), alors ils possèdent les mêmes états propres.
+
+\medskip
+\textbf{Preuve:} Si $\ket{\phi_i}$ est un état propre de $A$ avec valeur propre $a_i$, alors
+\begin{align*}
+  AB \ket{\phi_i} &= BA \ket{\phi_i}
+  \\
+  AB \ket{\phi_i} &=  a_i B \ket{\phi_i}
+  \\
+  A \ket{\tilde \phi_i} &=  a_i \ket{ \tilde \phi_i}
+\end{align*}
+Donc, l'état $\ket{\tilde \phi_i} = B \ket{\phi_i}$
+  est aussi un état propre de $A$ avec valeur propre $a_i$.
+
+\medskip
+Cet état est forcément proportionnel à $\ket{\phi_i}$.
+Si on nomme cette constante de proportionalité $b_i$,
+  alors on a
+\begin{align}
+  \ket{\tilde \phi_i} = B \ket{\phi_i} = b_i \ket{\phi_i}
+\end{align}
+Donc, $\ket{\phi_i}$ est aussi un état propre de $B$,
+  avec valeur propre $b_i$.
+
+
+\end{frame}
+
+
+
+
+
+\begin{frame}{États propres de l'opérateur de position}
+
+On note $\ket{\vec r}$ un état propres de l'opérateur de position
+  tel que
+\begin{align}
+  \vec X \ket{\vec r} = \vec r \ket{\vec r}
+\end{align}
+
+Lorsqu'on écrit $\psi(\vec r)$, on parle en fait de la projection
+  de $\ket{\psi}$ sur l'état $\ket{\vec r}$
+\begin{align}
+  \psi(\vec r) = \braket{\vec r \vert \psi}
+\end{align}
+
+Les états $\ket{\vec r}$ sont orthonormés, tel que
+\begin{align}
+  \braket{\vec r \vert \vec r'} = \delta^3(\vec r - \vec r')
+\end{align}
+Ils décrivent une fonction d'onde infiniement étroite
+  autour de la position $\vec r$.
+
+\end{frame}
+
+
+
+\begin{frame}{États propres de l'opérateur d'impulsion}
+
+On note $\ket{\vec p}$ un état propres de l'opérateur d'impulsion
+  tel que
+\begin{align}
+  \vec P \ket{\vec p} = \vec p \ket{\vec p}
+\end{align}
+
+Les états $\ket{\vec p}$ sont orthonormés, tel que
+\begin{align}
+  \braket{\vec p \vert \vec p'} = \delta^3(\vec p - \vec p')
+\end{align}
+Ils décrivent une fonction d'onde avec une impulsion bien définie,
+  ou encore, une particule libre.
+%
+La projection de ces états dans l'espace est
+%
+\begin{align}
+  \psi(\vec r) = \braket{\vec r \vert \vec p}
+  = e^{i \vec p \cdot \vec r / \hbar}
+  %= e^{i \vec k \cdot \vec r}
+\end{align}
+
+\end{frame}
+
+
+
+
+
+
+
+
+%\section{Équation de Schrödinger}
+%\frame{\sectionpage}
+
+
+%\begin{frame}{États propres de l'Hamiltonien}
+%
+%Les états propres de l'Hamiltonien sont les
+%  solutions de l'équation de Schrödinger
+%\begin{align}
+%  H \ket{\phi_j} = E_j \ket{\phi_j}
+%\end{align}
+%La valeur propre $E_j$ correspond à l'énergie d'un système dans l'état
+%  $\ket{\phi_j}$.
+%
+%\medskip
+%
+%%\medskip
+%
+%Si les états propres de $H$ sont dénombrables
+%  ($j=0,1,2,\dots$) avec des énergies distinctes
+%  ($E_0 < E_1 < E_2 < \dots$),
+%  alors on dit que $H$ possède des solutions discrètes,
+%  et l'indice $j$ est un \textbf{nombre quantique} entier.
+%
+%\medskip
+%Les solutions de $H$ peuvent aussi être continues
+%  et être décrites par un nombre quantique réel,
+%  par exemple, pour une particule libre
+%\begin{align}
+%  H \ket{\vec p} = E(\vec p) \ket{\vec p}
+%\end{align}
+%
+%%L'indice $j$ est un \textbf{nombre quantique}
+%%  et indique que la fonction d'onde $\psi_{j}$
+%%  est la $j^e$ solution possible de l'équation de Schrödinger,
+%%  et l'énergie $E_{j}$ est la $j^e$ valeur propre de l'Hamiltonien.
+%
+%%\medskip
+%
+%%Les états propres de l'hamiltonien peuvent être discrets
+%%  ou continus.
+%  
+%
+%\end{frame}
+
+
+%\begin{frame}{Équation de Schödinger}
+%
+%L'équation de Schrödinger nous donne l'évolution temporelle 
+%  de la fonction d'onde.
+%\begin{align}
+%  i \hbar \frac{\partial}{\partial t}
+%  \psi(\vec r, t)
+%  =
+%  H \psi(\vec r, t)
+%\end{align}
+%
+%%Une fonction d'onde correspond à un \textbf{état propre}
+%Si une fonction d'onde correspond à un état propre de l'hamiltonien
+%\begin{align}
+%  H \psi_{j}(\vec r, t)
+%  =
+%  E_{j} \psi_{j}(\vec r, t)
+%\end{align}
+%%L'indice $j$ est un \textbf{nombre quantique}
+%%  et indique que la fonction d'onde $\psi_{j}$
+%%  est la $j^e$ solution possible de l'équation de Schrödinger,
+%%  et l'énergie $E_{j}$ est la $j^e$ valeur propre de l'Hamiltonien.
+%
+%
+%Alors l'évolution temporelle de cette fonction d'onde
+%  sera donnée par
+%\begin{align}
+%  \psi_{j}(\vec r, t) = e^{-i E_{j} t / \hbar} \psi_{j}(\vec r, 0)
+%\end{align}
+%
+%\end{frame}
+
+
+
+
+
+\begin{frame}{États propres de l'hamiltonien}
+
+Les états propres de l'Hamiltonien sont
+\begin{align}
+  H \ket{\phi_j} = E_j \ket{\phi_j}
+\end{align}
+
+Si au temps $t=0$, une fonction d'onde est une combinaison linéaire
+  de ces états
+\begin{align}
+  \ket{\psi(0)} = \sum_{j} c_j \ket{\phi_j}
+\end{align}
+
+On peut calculer les coefficients avec
+\begin{align}
+  c_j = \braket{\phi_j \vert \psi(0)}
+\end{align}
+
+Au temps $t$, l'évolution temporelle de la fonction d'onde nous donne
+\begin{align}
+  \ket{\psi(t)} = \sum_{j} c_j e^{-i E_{j} t / \hbar} \ket{\phi_j}
+\end{align}
+
+\end{frame}
+
+
+
+
+
+\section{Mesure d'un observable}
+\frame{\sectionpage}
+
+
+
+\begin{frame}{Mesure d'un observable}
+
+
+Soit un observable $A$, qui possède des
+  valeurs propres $a_i$ et des
+  fonctions propres $\ket{\phi_i}$,
+  et soit une particule dont la fonction d'onde est $\ket{\psi}$.
+
+\bigskip
+Si l'on mesure $A$, les résultats possibles sont les valeurs propres $a_i$,
+  chacune avec une probabilité $\vert \braket{\phi_i \vert \psi} \vert^2$.
+%
+
+\bigskip
+Immédiatement après avoir mesurée la valeur $a_i$ pour l'observable $A$,
+  la fonction d'onde est projetée dans l'état $\ket{\phi_i}$
+
+\end{frame}
+
+
+
+
+\begin{frame}{Mesure d'un observable}
+
+La valeur moyenne, ou valeur attendue, d'un observable $A$ pour l'état $\ket{\psi}$, est
+\begin{align}
+  \braket{A} =
+  \braket{\psi \vert A \vert \psi} = \sum_{i} a_i \vert \braket{\phi_i \vert \psi} \vert^2
+\end{align}
+
+\bigskip
+
+La variance d'un observable $(\Delta A)^2$ est définie comme
+\begin{align}
+  (\Delta A)^2 = \braket{A^2} - \braket{A}^2
+\end{align}
+
+Et $\Delta A$ est appellé la déviation standard de $A$.
+
+\end{frame}
+
+
+
+
+
+\section{Bases complètes de fonctions orthonormales}
+%\section{Bases discrètes et continues}
+\frame{\sectionpage}
+
+
+
+
+\begin{frame}{Opérateur d'identité}
+
+L'identité $I$ est un opérateur qui ne modifie pas la fonction d'onde
+
+\bigskip
+
+\begin{align}
+  I \ket{\psi} = \ket{\psi}
+\end{align}
+
+\bigskip
+
+Il existe plusieurs façons de construire l'identité...
+
+\end{frame}
+
+
+
+
+\begin{frame}{Base complète de fonctions orthonormales}
+
+%Pour un espace vectoriel de dimension infinie,
+%  le nombre de fonctions de bases est illimité.
+%
+En général, il existe une infinité d'états propres
+  de l'hamiltonien (ou de tout autre opérateur):
+\begin{align}
+  H \ket{\phi_j} = E_j \ket{\phi_j}
+\end{align}
+
+Ces fonctions sont orthonormales:
+\begin{align}
+  \braket{\phi_i \vert \phi_j} = \delta_{ij}
+\end{align}
+
+Elles forment une base complète orthonormale
+  avec l'identité
+\begin{align}
+  I = \sum_{j=1}^{\infty} \ket{\phi_j} \bra{\phi_j}
+\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Décomposition de la fonction d'onde}
+
+Une fonction d'onde peut être décomposée
+  dans la base des fonctions propres de l'hamiltonien
+\begin{align}
+  \ket{\psi} = \sum_{j=1}^{\infty} c_j \ket{\phi_j}
+\end{align}
+
+Les coefficients de la fonction d'onde $\ket{\psi}$
+  dans cette base sont
+\begin{align}
+  c_i = \braket{\phi_i \vert \psi}
+\end{align}
+
+On peut démontrer ceci à l'aide de l'opérateur d'identité
+\begin{align}
+  \ket{\psi}
+  = I \ket{\psi}
+  = \sum_{j=1}^{\infty} \ket{\phi_j}\braket{\phi_j \vert \psi}
+  = \sum_{j=1}^{\infty} \ket{\phi_j} c_j
+\end{align}
+
+\end{frame}
+
+
+%
+%\begin{frame}{Bases continues}
+%
+%Une base infinie peut être continue
+%  si les fonctions de base sont identifiées
+%  par des nombres réels plutôt que des nombres entiers.
+%
+%\medskip
+%
+%Par exemple, les états propres de l'opérateur de position $\ket{\vec r}$
+%  forment une base complète:
+%\begin{align}
+%  I = \int d^3\vec r \ket{\vec r} \bra{\vec r}
+%\end{align}
+%%et orthonormale:
+%%\begin{align}
+%%  \braket{\vec r \vert \vec r'} = \delta^3(\vec r - \vec r')
+%%\end{align}
+%
+%C'est aussi le cas des états propres de l'opérateur d'impulsion:
+%\begin{align}
+%  I & = \int d^3\vec p \ket{\vec p} \bra{\vec p}
+%\end{align}
+%%avec
+%%\begin{align}
+%%  \braket{\vec p \vert \vec p'} &= \delta^3(\vec p - \vec p')
+%%\end{align}
+%
+%\end{frame}
+
+
+
+\begin{frame}{Espace vectoriel}
+
+Si l'on dispose d'un ensemble de $N$ fonctions orthornormales
+  $\ket{u_i}$ tel que
+\begin{align}
+  \braket{u_i \vert u_j} = \delta_{ij}
+\end{align}
+
+Ces $N$ fonctions définissent un \textbf{espace vectoriel} à $N$ dimensions,
+  et dans cet espace vectoriel, on a l'identité
+\vspace{-3mm}
+\begin{align}
+  I = \sum_{i=1}^N \ket{u_i} \bra{u_i}
+\end{align}
+
+Une fonction d'onde $\ket{\psi}$
+  fait partie de cet espace vectoriel
+  si on peut l'exprimer comme une combinaison linéaire
+\vspace{-3mm}
+\begin{align}
+  \ket{\psi} = \sum_{i=1}^N c_i \ket{u_i}
+\end{align}
+
+Les coefficients de la fonction d'onde $\ket{\psi}$
+  dans la base de $\ket{u_i}$ sont
+\begin{align}
+  c_i = \braket{u_i \vert \psi}
+\end{align}
+
+\end{frame}
+
+
+
+
+%
+%
+%
+%\begin{frame}{Équation de Schödinger}
+%
+%L'équation de Schrödinger nous donne l'évolution temporelle 
+%  de la fonction d'onde.
+%\begin{align}
+%  i \hbar \frac{\partial}{\partial t}
+%  \psi(\vec r, t)
+%  =
+%  H \psi(\vec r, t)
+%\end{align}
+%
+%%Une fonction d'onde correspond à un \textbf{état propre}
+%Si une fonction d'onde correspond à un état propre de l'hamiltonien
+%\begin{align}
+%  H \psi_{j}(\vec r, t)
+%  =
+%  E_{j} \psi_{j}(\vec r, t)
+%\end{align}
+%%L'indice $j$ est un \textbf{nombre quantique}
+%%  et indique que la fonction d'onde $\psi_{j}$
+%%  est la $j^e$ solution possible de l'équation de Schrödinger,
+%%  et l'énergie $E_{j}$ est la $j^e$ valeur propre de l'Hamiltonien.
+%
+%
+%Alors l'évolution temporelle de cette fonction d'onde
+%  sera donnée par
+%\begin{align}
+%  \psi_{j}(\vec r, t) = e^{-i E_{j} t / \hbar} \psi_{j}(\vec r, 0)
+%\end{align}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}{Évolution temporelle de la fonction d'onde}
+%
+%Si on connaît $\ket{\psi(0)}$, la fonction d'onde au temps $t=0$,
+%  pour calculer son évolution au temps $t$,
+%  il faut commencer par la décomposer
+%  dans la base des états propres de l'hamiltonien
+%\begin{align}
+%  \ket{\psi(0)} = \sum_{j} c_j \ket{\phi_j}
+%\end{align}
+%avec
+%\begin{align}
+%  c_j = \braket{\phi_j \vert \psi(0)}
+%\end{align}
+%
+%Au temps $t$, la fonction d'onde deviendra
+%\begin{align}
+%  \ket{\psi(t)} = \sum_{j} c_j e^{-i E_{j} t / \hbar} \ket{\phi_j}
+%\end{align}
+%
+%
+%\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Représentation matricielle des opérateurs}
+\frame{\sectionpage}
+
+
+
+\begin{frame}{Représentation matricielle d'un opérateur}
+
+Il est toujours possible de représenter un opérateur comme une matrice
+  à l'aide d'un ensemble de fonctions de bases $\ket{u_i}$ avec
+\begin{align}
+  A_{ij} = \braket{u_i \vert A \vert u_j}
+\end{align}
+
+Par exemple, dans un espace vectoriel à 3 dimensions
+  avec les fonctions de base $\ket{u_1}$, $\ket{u_2}$, $\ket{u_3}$,
+  on exprimerait un opérateur comme
+\begin{align}
+  A =
+  \begin{bmatrix}
+    A_{11} & A_{12} & A_{13} \\
+    A_{21} & A_{22} & A_{23} \\
+    A_{31} & A_{32} & A_{33} \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \braket{u_1 \vert A \vert u_1} & \braket{u_1 \vert A \vert u_2} & \braket{u_1 \vert A \vert u_3} \\
+    \braket{u_2 \vert A \vert u_1} & \braket{u_2 \vert A \vert u_2} & \braket{u_2 \vert A \vert u_3} \\
+    \braket{u_3 \vert A \vert u_1} & \braket{u_3 \vert A \vert u_2} & \braket{u_3 \vert A \vert u_3} \\
+  \end{bmatrix}
+\end{align}
+
+Un terme $\braket{u_i \vert A \vert u_j}$
+  est appelé un \textbf{élément de matrice}.
+
+\end{frame}
+
+
+%
+%\begin{frame}{Valeurs propres et fonctions propres d'un opérateur}
+%
+%Un opérateur possède des fonctions propres $\ket{\phi_i}$
+%  et des valeurs propres $a_i$ si
+%\begin{align}
+%  A \ket{\phi_i} = a_i \ket{\phi_i}
+%\end{align}
+%
+%Un opérateur sera \textbf{hermitien} si $A\!=\!A^{\dagger}$,
+%  c'est-à-dire
+%\begin{align}
+%  A_{ij} = A_{ji}^*
+%\end{align}
+%Un opérateur hermitien possède des valeurs propres réelles.
+%
+%\medskip
+%
+%Les \textbf{observables} sont des opérateurs hermitiens.
+%
+%\medskip
+%
+%On peut exprimer un opérateur
+%  en termes de ses fonctions propres
+%  et de ses valeurs propres comme
+%\begin{align}
+%  A = \sum_i \ket{\phi_i} a_i \bra{\phi_i}
+%\end{align}
+%
+%\end{frame}
+
+
+
+\begin{frame}{Valeurs propres et fonctions propres d'un opérateur}
+
+La représentation matricielle des opérateurs permet de trouver
+  leurs valeurs propres et fonctions propres.
+Par exemple, l'opérateur
+\begin{align}
+  A =
+  \begin{bmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 2 \\
+  \end{bmatrix}
+\end{align}
+possède les valeurs propres
+\begin{align}
+  a_1 = -1
+  \qquad ; \qquad
+  a_2 =  1
+  \qquad ; \qquad
+  a_3 =  2
+\end{align}
+et les vecteurs propres
+\begin{align}
+  \ket{\phi_1} =
+  \frac{1}{\sqrt{2}}
+  \begin{bmatrix}
+    1 \\
+    -1 \\
+    0 \\
+  \end{bmatrix}
+  \quad ; \quad
+  \ket{\phi_2} =
+  \frac{1}{\sqrt{2}}
+  \begin{bmatrix}
+    1 \\
+    1 \\
+    0 \\
+  \end{bmatrix}
+  \quad ; \quad
+  \ket{\phi_3} =
+  \begin{bmatrix}
+    0 \\
+    0 \\
+    1 \\
+  \end{bmatrix}
+\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Valeurs propres et fonctions propres d'un opérateur}
+
+Remarque 1: si on a exprimé un opérateur dans la base
+  des $\ket{u_i}$, alors un état comme
+\begin{align}
+  \ket{\psi} =
+  \frac{1}{\sqrt{2}}
+  \begin{bmatrix}
+    1 \\
+    i \\
+    0 \\
+  \end{bmatrix}
+\end{align}
+signifie en fait
+\begin{align}
+  \ket{\psi} = \frac{1}{\sqrt{2}} \ket{u_1} + \frac{i}{\sqrt{2}} \ket{u_2}
+\end{align}
+
+Remarque 2: un ket est représenté par un vecteur-colonne,
+  et un bra est représenté par un vecteur-ligne, e.g.
+\begin{align}
+  \bra{\psi}
+  \ = \
+  \frac{1}{\sqrt{2}}
+  \begin{bmatrix}
+    1  , &
+    -i , &
+    0 \\
+  \end{bmatrix}
+  \ = \
+  \frac{1}{\sqrt{2}} \bra{u_1} - \frac{i}{\sqrt{2}} \bra{u_2}
+\end{align}
+
+\end{frame}
+
+
+
+
+
+\end{document}
