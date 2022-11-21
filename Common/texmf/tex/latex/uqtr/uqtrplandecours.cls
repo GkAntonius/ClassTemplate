@@ -1,26 +1,10 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{uqtrplandecours}[2021/08/11 Plan de cours pour l'UQTR]
 \LoadClass{article}
+\RequirePackage{uqtrbase}
 \RequirePackage{mathptmx}
 \RequirePackage{amssymb}
-\RequirePackage{amsmath}
-\RequirePackage{graphicx}
-\RequirePackage{placeins}
-\RequirePackage{hyperref}
-\RequirePackage{lipsum}
-\RequirePackage{color}
 \RequirePackage{titling}  % Allows to use \theauthor and \thetitle
-\RequirePackage{tabularx}
-\RequirePackage{pbox}
-\RequirePackage{longtable}
-\RequirePackage{multirow}
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{multido}
-\RequirePackage{etoolbox}
-\RequirePackage{fp}
-\RequirePackage{kvoptions}
-
-\newcolumntype{C}{>{\centering\arraybackslash} m}
 
 % =========================================================================== %
 % Various formatting option
@@ -32,63 +16,14 @@
 \RequirePackage{enumitem}
 \setlist[itemize]{noitemsep, topsep=0pt}
 
-% Hyperlinks
-\hypersetup{
-    colorlinks=true,  % false: boxed links; true: colored links
-    linkcolor=blue,   % color of internal links
-    citecolor=blue,   % color of links to bibliography
-    filecolor=black,  % color of file links
-    urlcolor=blue     % color of external links
-  }
-
-
-
 \setlength{\parindent}{0pt}
 
-
-
 % =========================================================================== %
-% Utility macros
+% Plan-de-cours objects
 % =========================================================================== %
-
-
-% Define the Repeat command
-%\usepackage{pgffor}
-%\newcommand{\Repeat}[2]{% \repeat already defined
-%    \foreach \n in {1,...,#1}{#2}
-%  }
-\RequirePackage{expl3}
-\ExplSyntaxOn
-\cs_new_eq:NN \Repeat \prg_replicate:nn
-\ExplSyntaxOff
-
-% A separator for constructing variable names
-\newcommand{\Xsep}{XXX} 
-
-% Iterator counters
-\newcounter{ii}
-\newcounter{jj}[ii]
-
-% =========================================================================== %
-% Header and footer functions
-% =========================================================================== %
-
-\newlength{\logowidth}
-\setlength{\logowidth}{5cm}
-
-\newlength{\signaturewidth}
-\setlength{\signaturewidth}{3cm}
-
-\newcommand{\logofilename}{h-DE}
-\newcommand{\signaturefilename}{}
-\newcommand{\signature}[1]{\renewcommand{\signaturefilename}{#1}}
-\newcommand{\insertsignature}{%
-  \ifdefempty{\signaturefilename}{\relax}{\includegraphics[width=\signaturewidth]{\signaturefilename}}
-  }
 
 
 % =============== Classes ============= %
-
 
 % This is the main counter for each class
 \newcounter{class}
@@ -403,6 +338,8 @@
 
 % =============== Evaluations table ============= %
 
+\newcolumntype{C}{>{\centering\arraybackslash} m}
+
 \newcommand{\evaltableheader}{
   \hline
   & \multicolumn{3}{ c |}{\bf Pondération } & \\
@@ -493,36 +430,8 @@
 % Header and course info
 % =========================================================================== %
 
-\definecolor{VertUQTR}{RGB}{0,100,55}
-\definecolor{VertForetUQTR}{RGB}{0,89,40}
-
-\newcommand{\theauthormail}{example@uqtr.ca}
-\newcommand{\authormail}[1]{\renewcommand{\theauthormail}{#1}}
-\newcommand{\thecoursecode}{XXX0000}
-\newcommand{\coursecode}[1]{\renewcommand{\thecoursecode}{#1}}
-\newcommand{\thecoursetitle}{\thetitle}
-\newcommand{\coursetitle}[1]{\renewcommand{\thecoursetitle}{#1}}
-\newcommand{\thecourseyear}{1}
-\newcommand{\courseyear}[1]{\renewcommand{\thecourseyear}{#1}}
-\newcommand{\thecourseurl}{}
-\newcommand{\courseurl}[1]{\renewcommand{\thecourseurl}{#1}}
-\newcommand{\thesemester}{Hiver 2019}
-\newcommand{\semester}[1]{\renewcommand{\thesemester}{#1}}
-\newcommand{\thedepartment}{Département de chimie, biochimie\\ et physique}
-\newcommand{\department}[1]{\renewcommand{\thedepartment}{#1}}
-\newcommand{\thecourselevel}{Premier cycle}
-\newcommand{\theshortcourselevel}{1$^{\text{er}}$ cycle}
-
-\newcommand{\thedepartmenthead}{}
-\newcommand{\departmenthead}[1]{\renewcommand{\thedepartmenthead}{#1}}
-
-\newcommand{\theprogramdirector}{}
-\newcommand{\programdirector}[1]{\renewcommand{\theprogramdirector}{#1}}
-
 
 % Header and footer
-\usepackage{fancyhdr}
-\usepackage{lastpage}
 \pagestyle{fancy}
 \lhead{}\chead{}\rhead{}
 %\lfoot{\thecoursecode}\cfoot{}\rfoot{\thepage \ / \pageref*{LastPage}}  % The star is for "no hyperlink"
@@ -530,69 +439,7 @@
 \renewcommand{\headrulewidth}{0.0pt}
 \renewcommand{\footrulewidth}{0.5pt}
 
-
-\fancypagestyle{Cancelheader}{% 
-   \fancyhead{}
-   \renewcommand{\headrulewidth}{0pt}
-}
-
-
-
-\newcommand{\titlesize}{\Large}
-\newcommand{\makeheader}{
-  
-  \thispagestyle{Cancelheader}
-  
-  \begin{minipage}[c][2cm][t]{0.45\linewidth}
-  \flushleft
-  \includegraphics[width=\logowidth]{\logofilename}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[c][2cm][c]{0.45\linewidth}
-  \flushright
-  \color{VertUQTR}
-  {\Large
-  {\sc Plan de cours}\\
-  {\thecourselevel}
-  }
-  \end{minipage}
-  
-  \medskip
-  
-  \hrule
-  
-  \medskip
-  
-  \noindent
-  \begin{minipage}[c][12mm][t]{0.50\linewidth}
-  \flushleft
-  {\bf \thedepartment}
-  \end{minipage}
-  \hfill
-  \begin{minipage}[c][12mm][t]{0.45\linewidth}
-  \flushright
-  {\bf \theauthor}\\
-  \theauthormail
-  \end{minipage}
-  
-  \hrule
-  
-  \begin{center}
-  
-  {
-  \bf
-  {\large \thecoursecode}%
-  \hfill
-  {\titlesize \thecoursetitle}% 
-  \hfill
-  {\large \thesemester}
-  }
-  
-  \end{center}
-  
-  \hrule
-  
-  }
+\renewcommand{\titlesize}{\Large}
 
 \newcommand{\makeheaderoriginal}{
   
@@ -666,6 +513,7 @@
 
 
 \newcommand{\checkedbox}{\square \raisebox{.18ex}{\hspace{-.7em}\checkmark}}
+
 
 \newcommand{\signaturespremiercycle}{
 \vspace{5mm}
@@ -1019,3 +867,5 @@ Plus particulièrement:
 %\fi
 %
 %\makeatother
+
+\title{\thecoursetitle}

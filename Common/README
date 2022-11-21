@@ -1,0 +1,15 @@
+This directory contains all the Makefile components
+as well as the latex classes.
+
+Please edit the following files to specify informations
+on the current semester.
+
+    info.mk
+    uqtrinfo.sty
+
+
+The file common.mk sets the latex environment and contains the main rules
+for compiling tex files into pdf.
+
+The file top.mk decides which directories are being synced to the
+final output directory.

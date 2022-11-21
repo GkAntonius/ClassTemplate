@@ -1,1 +1,1 @@
-docname = Exercice
+doclabel = Exercice

@@ -1,32 +1,36 @@
+# =========================================================================== #
+#
+# UQTR Class Template  ---  version 2022-11-15
+# 
+# =========================================================================== #
+# 
+# 
+# make              Collect all the pdf and organized them into
+#                   the output directory.
+# 
+# make ouput        Same as make.
+#
+# make archive      Compress the output directory into an archive
+#
+# make clean        Remove the archive file.
+#
+# make veryclean    Remove the output directory.
+#
+#
+# The pdf are collected from the following directories:
+#
+#     Presentations/
+#     Exercices/
+#     Devoirs/
+#
+# Please edit the following files to specify informations on the current semester:
+#
+#     Common/info.mk
+#     Common/uqtrinfo.sty
+#
+# 
+# =========================================================================== #
+# 
+# 
 include Common/info.mk
-output = $(code)-$(year)
-
-all: dirs output
-
-sub:
-	cd Presentations && make
-	cd Exercices && make
-	cd Devoirs && make
-
-dirs: 
-	mkdir -p Plan-de-cours
-	mkdir -p Presentations
-	mkdir -p Exercices
-	mkdir -p Devoirs
-	mkdir -p Etudiants
-
-outputdirs:
-	mkdir -p $(output)
-	mkdir -p $(output)/Plan-de-cours
-	mkdir -p $(output)/Presentations
-	mkdir -p $(output)/Exercices
-	mkdir -p $(output)/Devoirs
-
-output: sub outputdirs
-	cp -f Plan-de-cours/pdf/* $(output)/Plan-de-cours/ 2>/dev/null || :
-	cp -f Presentations/All/* $(output)/Presentations/ 2>/dev/null || :
-	cp -f Exercices/All/* $(output)/Exercices/ 2>/dev/null || :
-	cp -f Devoirs/All/* $(output)/Devoirs/ 2>/dev/null || :
-
-archive: output
-	tar -cjf $(output).tar.gz $(output)
+include Common/top.mk

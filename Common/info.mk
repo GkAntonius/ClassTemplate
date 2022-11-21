@@ -5,4 +5,4 @@
 code = PHQ0000
 year = 2022
 semester = A
-edition = $(code)-$(semester)-$(year)
+edition = $(code)-$(year)

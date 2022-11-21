@@ -1,1 +1,1 @@
-docname = Devoir
+doclabel = Devoir

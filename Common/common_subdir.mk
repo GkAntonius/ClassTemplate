@@ -4,4 +4,4 @@
 topdir_from_above = $(shell pwd)/../
 topdir = $(topdir_from_above)
 
-finalname = $(edition)-$(docname)
+finalname = $(edition)-$(doclabel)

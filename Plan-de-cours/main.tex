@@ -1,31 +1,18 @@
 \documentclass[12pt,undergraduate]{uqtrplandecours}                                                                                                                            
 \usepackage{uqtrinfo}  % Info on the author name and class title
-\usepackage{natbib}
-\usepackage{bibentry}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{main.bib}
 
 \graphicspath{{img/}}
-
-\nobibliography*
-
-\title{Mécanique quantique II}
-
 \signature{img/signature.png}  % Specify your signature image file
-%\authormail{gabriel.antonius@uqtr.ca}
-%\department{Département de chimie, biochimie et physique}
-\departmenthead{Marc Beauregard}
-\programdirector{Benoit Daoust}
 
-%\coursecode{PMO1008}
-%\semester{Automne 2022}
-%\courseyear{3}
-%\courseurl{https://oraprdnt.uqtr.uquebec.ca/pls/public/couw001?owa_sigle=PMO1008&owa_type=P&owa_apercu=N&owa_aff_pgm=7724}
-
+% ============================================================================ %
 
 % Dates des rencontres
 \addclass{12 septembre}
 \addclass{19 septembre}
 \addclass{26 septembre}
-%\addclass{ 3 octobre}
+\addclass{ 3 octobre}
 \addclass{17 octobre}
 \addclass{24 octobre}
 \addclass{31 octobre}
@@ -64,7 +51,6 @@ Méthodes d'approximation: perturbations stationnaires,
 
 
 \section{Objectif général du cours}
-% Ce que le cours va offrir aux étudiants
 
 \begin{itemize}
   \item Assimiler les notions essentielles de la mécanique quantique
@@ -76,7 +62,6 @@ Méthodes d'approximation: perturbations stationnaires,
 
 
 \section{Objectif spécifiques}
-% Ce que les étudiants seront capable de faire
 
 \begin{itemize}
   \item Maîtriser l'addition de moments angulaires
@@ -187,15 +172,13 @@ Tous les cours se donneront par zoom (donc, en mode synchrone).
 
 Ouvrage obligatoire:
 \begin{itemize}
-  \item \bibentry{MarchildonQuantumMechanics2002}
-\\ OU
-  \item \bibentry{Cohen-TannoudjiQuantummechanics1993}
+  \item \fullcite{Cohen-TannoudjiQuantummechanics1993}
 \end{itemize}
 
 Autres références:
 \begin{itemize}
-  %\item \bibentry{Cohen-TannoudjiQuantummechanicsVol2005}
-  \item \bibentry{SakuraiModernquantummechanics2009}
+  \item \fullcite{MarchildonQuantumMechanics2002}
+  \item \fullcite{SakuraiModernquantummechanics2009}
 \end{itemize}
 
 
@@ -238,10 +221,10 @@ Un maximum de 5\% peut être attribué à la maîtrise de la langue française
 %
 L'utilisation de \LaTeX \ maximisera vos points de présentation.
 
+
 \subsubsection*{Règles particulières pour la passation d’une activité d’évaluation par Zoom}
 
 L’étudiant qui participe à une activité d’évaluation par Zoom doit activer sa caméra (vidéo) et la maintenir active jusqu’à sa déconnexion de la séance Zoom, afin de permettre à l’enseignant ou au surveillant de vérifier son identité et d’effectuer la surveillance de l’activité. L’étudiant doit avoir le visage à découvert sans obstruction (couvre-visage, casquette, chapeau, etc.) et ajuster sa caméra de façon à ce qu’elle capte son visage complet. L’étudiant doit avoir en sa possession sa carte étudiante à des fins de vérification d’identité et se connecter à l’activité en utilisant les prénom et nom indiqués sur sa carte.
-
  
 Si l’étudiant refuse d’activer sa caméra ou de s’identifier auprès de l’enseignant ou du surveillant de la manière qui lui sera indiquée, il sera exclu de la séance Zoom. Il sera considéré comme étant absent à l’activité sans motif sérieux et sans possibilité de la reprendre.
 
@@ -280,7 +263,7 @@ Le barème peut cependant être bonifié selon de la difficulté avérée du cou
 
 % =========================================================================== %
 
-\bibliographystyle{plainnat}
-\nobibliography{main}
+%\bibliographystyle{plainnat}
+%\nobibliography{main}
 
 \end{document}

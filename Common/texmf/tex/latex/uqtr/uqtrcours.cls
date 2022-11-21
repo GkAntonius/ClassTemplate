@@ -2,10 +2,7 @@
 \ProvidesClass{uqtrcours}[2019/08/01 Exam]
 %\LoadClass[xcolor=svgnames,t,aspectratio=169]{beamer}
 \LoadClassWithOptions{beamer}
-\RequirePackage{color}
-\RequirePackage[utf8]{inputenc}
-%\RequirePackage{myminted}
-
+\RequirePackage{uqtrbase}
 
 
 
@@ -299,3 +296,15 @@
 
 
 \newcommand{\PutTitlePageLogoUQTR}{\institute[UQTR]{\includegraphics[height=16mm]{h-UQTR.png}}}
+
+
+
+% Hyperlinks
+\hypersetup{
+    colorlinks=false,  % false: boxed links; true: colored links
+    linkcolor=blue,   % color of internal links
+    citecolor=blue,   % color of links to bibliography
+    filecolor=black,  % color of file links
+    urlcolor=blue     % color of external links
+  }
+

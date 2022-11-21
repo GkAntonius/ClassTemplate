@@ -1,1 +1,1 @@
-docname = presentation
+doclabel = presentation

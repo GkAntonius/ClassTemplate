@@ -1,0 +1,200 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{uqtrbase}[2022/11/18 Variables and functions common to UQTR classes]
+\RequirePackage{uqtrcolors}
+\RequirePackage[utf8]{inputenc}
+%\requirepackage{mathptmx}
+%\requirepackage{amssymb}
+\RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{placeins}
+\RequirePackage{lipsum}
+\RequirePackage{color}
+\RequirePackage{tabularx}
+\RequirePackage{pbox}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{multido}
+\RequirePackage{etoolbox}
+\RequirePackage{fp}
+\RequirePackage{kvoptions}
+
+% Remove spacing before itemize and between bullets
+\RequirePackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+% Hyperlinks
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,  % false: boxed links; true: colored links
+    linkcolor=blue,   % color of internal links
+    citecolor=blue,   % color of links to bibliography
+    filecolor=black,  % color of file links
+    urlcolor=blue     % color of external links
+  }
+
+
+% =========================================================================== %
+% Utility macros
+% =========================================================================== %
+
+
+% Define the Repeat command
+%\usepackage{pgffor}
+%\newcommand{\Repeat}[2]{% \repeat already defined
+%    \foreach \n in {1,...,#1}{#2}
+%  }
+\RequirePackage{expl3}
+\ExplSyntaxOn
+\cs_new_eq:NN \Repeat \prg_replicate:nn
+\ExplSyntaxOff
+
+% A separator for constructing variable names
+\newcommand{\Xsep}{XXX} 
+
+% Iterator counters
+\newcounter{ii}
+\newcounter{jj}[ii]
+
+% =========================================================================== %
+% Header and footer functions
+% =========================================================================== %
+
+\newlength{\logowidth}
+\setlength{\logowidth}{5cm}
+
+\newlength{\signaturewidth}
+\setlength{\signaturewidth}{3cm}
+
+\newcommand{\logofilename}{h-DE}
+\newcommand{\signaturefilename}{}
+\newcommand{\signature}[1]{\renewcommand{\signaturefilename}{#1}}
+\newcommand{\insertsignature}{%
+  \ifdefempty{\signaturefilename}{\relax}{\includegraphics[width=\signaturewidth]{\signaturefilename}}
+  }
+
+
+% =========================================================================== %
+% Header and course info
+% =========================================================================== %
+
+\newcommand{\theauthormail}{example@uqtr.ca}
+\newcommand{\authormail}[1]{\renewcommand{\theauthormail}{#1}}
+\newcommand{\thecoursecode}{XXX0000}
+\newcommand{\coursecode}[1]{\renewcommand{\thecoursecode}{#1}}
+\newcommand{\thecoursetitle}{Titre du cours}
+\newcommand{\coursetitle}[1]{\renewcommand{\thecoursetitle}{#1}}
+\newcommand{\thecourseyear}{1}
+\newcommand{\courseyear}[1]{\renewcommand{\thecourseyear}{#1}}
+\newcommand{\thecourseurl}{}
+\newcommand{\courseurl}[1]{\renewcommand{\thecourseurl}{#1}}
+\newcommand{\thesemester}{Hiver 20XX}
+\newcommand{\semester}[1]{\renewcommand{\thesemester}{#1}}
+\newcommand{\thedepartment}{Département de chimie, biochimie\\ et physique}
+\newcommand{\department}[1]{\renewcommand{\thedepartment}{#1}}
+\newcommand{\thecourselevel}{Premier cycle}
+\newcommand{\theshortcourselevel}{1$^{\text{er}}$ cycle}
+
+\newcommand{\thedepartmenthead}{}
+\newcommand{\departmenthead}[1]{\renewcommand{\thedepartmenthead}{#1}}
+
+\newcommand{\theprogramdirector}{}
+\newcommand{\programdirector}[1]{\renewcommand{\theprogramdirector}{#1}}
+
+
+% Header and footer
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+
+%\pagestyle{fancy}
+%\lhead{}\chead{}\rhead{}
+%%\lfoot{\thecoursecode}
+%\lfoot{Décanat des études}
+%\cfoot{}
+%\rfoot{\thepage \ / \pageref*{LastPage}}  % The star is for "no hyperlink"
+%\renewcommand{\headrulewidth}{0.0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+
+
+\fancypagestyle{Cancelheader}{% 
+   \fancyhead{}
+   \renewcommand{\headrulewidth}{0pt}
+}
+
+\newcommand{\thedocumentlabel}{Document}
+\newcommand{\setdocumentlabel}[1]{\renewcommand{\thedocumentlabel}{#1}}
+
+\newcommand{\titlesize}{\Large}
+
+\newcommand{\uqtrheader}{
+  
+  \thispagestyle{Cancelheader}
+  
+  \begin{minipage}[c][2cm][t]{0.45\linewidth}
+  \flushleft
+  \includegraphics[width=\logowidth]{\logofilename}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c][2cm][c]{0.45\linewidth}
+  \flushright
+  \color{VertUQTR}
+  {\Large
+  {\sc Plan de cours}\\
+  {\thecourselevel}
+  }
+  \end{minipage}
+  
+  \medskip
+  
+  \hrule
+  
+  \medskip
+  
+  \noindent
+  \begin{minipage}[c][12mm][t]{0.50\linewidth}
+  \flushleft
+  {\bf \thedepartment}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c][12mm][t]{0.45\linewidth}
+  \flushright
+  {\bf \theauthor}\\
+  \theauthormail
+  \end{minipage}
+  
+  \hrule
+  
+  \begin{center}
+  
+  {
+  \bf
+  {\large \thecoursecode}%
+  \hfill
+  {\titlesize \thecoursetitle}% 
+  \hfill
+  {\large \thesemester}
+  }
+  
+  \end{center}
+  
+  \hrule
+  
+}
+
+
+% =========================================================================== %
+% Process class options
+% =========================================================================== %
+
+%\ProcessOptions\relax
+
+%\ProcessKeyvalOptions*
+%
+%\makeatletter
+%
+%\ifuqtrplandecours@undergraduate
+%  \setundergraduate                                                                                                                                              
+%\else
+%  \setgraduate
+%\fi
+%
+%\makeatother
