@@ -23,7 +23,7 @@
 #     Exercices/
 #     Devoirs/
 #
-# Please edit the following files to specify informations on the current semester:
+# Please specify informations on the current semester in the following files:
 #
 #     Common/info.mk
 #     Common/uqtrinfo.sty

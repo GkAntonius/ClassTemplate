@@ -1,32 +1,61 @@
 
 edition = $(code)-$(year)
 
+# The list of directoris containing a Makefile
+# and subdirectory All from which the pdf are copied.
+# You can expand this list with e.g. Exams Lab
+#
+directories_subsub = Presentations Exercices Devoirs
+
+
+# The list of directoris containing a Makefile and subdirectory pdf
+# from which the pdf are copied.
+#
+directories_sub = Plan-de-cours
+
+
+# Other directories we want to create
+#
+directories_extra = Etudiants
+
+
+# =========================================================================== #
+
+
 all: dirs output
 
 sub:
-	cd Presentations && make
-	cd Exercices && make
-	cd Devoirs && make
+	for d in $(directories_subsub); do \
+		cd $$d && make; cd ..; \
+	done ; \
 
 dirs: 
-	mkdir -p Plan-de-cours
-	mkdir -p Presentations
-	mkdir -p Exercices
-	mkdir -p Devoirs
-	mkdir -p Etudiants
+	for d in $(directories_subsub); do \
+		mkdir -p $$d; \
+	done ; \
+	for d in $(directories_sub); do \
+		mkdir -p $$d; \
+	done ; \
+	for d in $(directories_extra); do \
+		mkdir -p $$d; \
+	done ; \
 
 outputdirs:
 	mkdir -p $(edition)
-	mkdir -p $(edition)/Plan-de-cours
-	mkdir -p $(edition)/Presentations
-	mkdir -p $(edition)/Exercices
-	mkdir -p $(edition)/Devoirs
+	for d in $(directories_subsub); do \
+		mkdir -p $(edition)/$$d; \
+	done ; \
+	for d in $(directories_sub); do \
+		mkdir -p $(edition)/$$d; \
+	done ; \
 
 output: sub outputdirs
-	cp -f Plan-de-cours/pdf/* $(edition)/Plan-de-cours/ 2>/dev/null || :
-	cp -f Presentations/All/* $(edition)/Presentations/ 2>/dev/null || :
-	cp -f Exercices/All/* $(edition)/Exercices/ 2>/dev/null || :
-	cp -f Devoirs/All/* $(edition)/Devoirs/ 2>/dev/null || :
+	for d in $(directories_subsub); do \
+		cp -f $$d/All/* $(edition)/$$d/ 2>/dev/null || : ; \
+	done ; \
+	for d in $(directories_sub); do \
+		cp -f $$d/pdf/* $(edition)/$$d/ 2>/dev/null || : ; \
+	done ; \
 
 archive: output
 	tar -cjf $(edition).tar.gz $(edition)
