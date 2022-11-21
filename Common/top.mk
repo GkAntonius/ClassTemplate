@@ -26,7 +26,14 @@ all: dirs output
 
 sub:
 	for d in $(directories_subsub); do \
-		cd $$d && make; cd ..; \
+		echo $$d; cd $$d && make; cd ..; \
+	done ; \
+
+recursive: subrecursive output
+
+subrecursive:
+	for d in $(directories_subsub); do \
+		echo $$d; cd $$d && make recursive; cd ..; \
 	done ; \
 
 dirs: 
@@ -60,8 +67,24 @@ output: sub outputdirs
 archive: output
 	tar -cjf $(edition).tar.gz $(edition)
 
-clean:
+clean: output subveryclean
 	rm -f $(edition).tar.gz
 
-veryclean:
+veryclean: clean
 	rm -rf $(edition)
+
+subclean:
+	for d in $(directories_subsub); do \
+		echo $$d; cd $$d && make clean; cd ..; \
+	done ; \
+	for d in $(directories_sub); do \
+		echo $$d; cd $$d && make clean; cd ..; \
+	done ; \
+
+subveryclean:
+	for d in $(directories_subsub); do \
+		echo $$d; cd $$d && make veryclean; cd ..; \
+	done ; \
+	for d in $(directories_sub); do \
+		echo $$d; cd $$d && make veryclean; cd ..; \
+	done ; \

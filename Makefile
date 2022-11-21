@@ -5,23 +5,27 @@
 # =========================================================================== #
 # 
 # 
-# make              Collect all the pdf and organized them into
-#                   the output directory.
-# 
-# make ouput        Same as make.
+#     make                  Collect all the pdf and organized them into
+#                           the output directory.
+#     
+#     make ouput            Same as make.
 #
-# make archive      Compress the output directory into an archive
+#     make archive          Compress the output directory into an archive.
 #
-# make clean        Remove the archive file.
+#     make recursive        Descend into each subdirectory, build everything,
+#                           and gather the pdf.
 #
-# make veryclean    Remove the output directory.
+#     make clean            Remove the archive file and clean recursively.
+#
+#     make veryclean        Clean, and remove the output directory as well.
 #
 #
-# The pdf are collected from the following directories:
+# The pdf are collected from the following subdirectories:
 #
 #     Presentations/
 #     Exercices/
 #     Devoirs/
+#
 #
 # Please specify informations on the current semester in the following files:
 #

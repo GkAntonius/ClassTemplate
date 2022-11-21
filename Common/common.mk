@@ -1,8 +1,11 @@
-#== Platform-specific variables ==
+# =========================================================================== #
+# == Platform-specific variables and options ==
+# =========================================================================== #
 
 # Command to open a pdf
 openpdf = open  # MacOS
 #openpdf = evince  # Linux
+
 
 # LaTeX engine
 compiler = pdflatex
@@ -15,8 +18,10 @@ texclasses = $(topdir)/Common/texmf/tex/latex/uqtr/
 CURRENT := $(TEXINPUTS)
 export TEXINPUTS="..//:$(texclasses):$(texcommon):$(CURRENT):"
 
+# =========================================================================== #
+# == Rules ==
+# =========================================================================== #
 
-#== Targets & dependencies ==
 main = main
 references = main.bib
 
@@ -29,11 +34,11 @@ bib: out/main.bbl out/main.pdf
 
 out/$(main).pdf: always
 
-#== Rules ==
 
 # Create directories
 dirs:
 	mkdir -p out img pdf
+
 
 # Open output
 open: 
@@ -41,6 +46,7 @@ open:
 
 out/%.pdf: %.tex dirs
 	$(compiler) $(flags) $<;
+
 
 # Bibliography
 out/%.bbl: %.tex $(references)
@@ -51,6 +57,7 @@ out/%.bbl: %.tex $(references)
 	$(bibengine) $*;\
 	cd ..;\
 	$(compiler) $(flags) $<
+
 
 final: out/$(main).pdf
 	@echo "cp $< pdf/$(finalname).pdf"
@@ -74,3 +81,5 @@ clean:
 
 veryclean: clean
 	rm -f pdf/*
+
+recursive: final
