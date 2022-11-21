@@ -8,12 +8,10 @@
 #     make                  Collect all the pdf and organized them into
 #                           the output directory.
 #     
-#     make ouput            Same as make.
-#
-#     make archive          Compress the output directory into an archive.
-#
 #     make recursive        Descend into each subdirectory, build everything,
 #                           and gather the pdf.
+#
+#     make archive          Compress the output directory into an archive.
 #
 #     make clean            Remove the archive file and clean recursively.
 #
@@ -31,6 +29,9 @@
 #
 #     Common/info.mk
 #     Common/uqtrinfo.sty
+#
+#
+# See Common/README for more customization options.
 #
 # 
 # =========================================================================== #

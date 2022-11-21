@@ -83,3 +83,6 @@ veryclean: clean
 	rm -f pdf/*
 
 recursive: final
+
+help:
+	cat Makefile

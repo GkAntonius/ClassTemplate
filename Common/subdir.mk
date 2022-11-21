@@ -20,13 +20,7 @@ recursive:
 		echo $$d; cd $$d && make recursive; cd ..; \
 	done ; \
 
-example:
-	mkdir -p 01-Example && rsync -avhF 00-Template/ 01-Example
-
-cleanexample:
-	rm -rf 01-Example
-
-clean: cleanexample final subveryclean
+clean: final subveryclean
 
 veryclean: clean
 	rm -f All/*
@@ -49,3 +43,5 @@ newdir:
 		fi ; \
 	fi ; \
 
+help:
+	cat Makefile

@@ -91,3 +91,6 @@ subveryclean:
 	for d in $(directories_sub); do \
 		echo $$d; cd $$d && make veryclean; cd ..; \
 	done ; \
+
+help:
+	cat Makefile
