@@ -35,6 +35,9 @@ subrecursive:
 	for d in $(directories_subsub); do \
 		echo $$d; cd $$d && make recursive; cd ..; \
 	done ; \
+	for d in $(directories_sub); do \
+		echo $$d; cd $$d && make recursive; cd ..; \
+	done ; \
 
 dirs: 
 	for d in $(directories_subsub); do \
